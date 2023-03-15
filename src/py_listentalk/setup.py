@@ -21,6 +21,7 @@ setup(
     entry_points={
         'console_scripts': [
             'talker = py_listentalk.publisher_member_function:main',
+            'listener = py_listentalk.listener_member_function:main',
         ],
     },
 )
