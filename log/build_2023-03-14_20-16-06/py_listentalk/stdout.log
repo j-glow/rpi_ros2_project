@@ -1,0 +1,35 @@
+running egg_info
+creating ../../build/py_listentalk/py_listentalk.egg-info
+writing ../../build/py_listentalk/py_listentalk.egg-info/PKG-INFO
+writing dependency_links to ../../build/py_listentalk/py_listentalk.egg-info/dependency_links.txt
+writing entry points to ../../build/py_listentalk/py_listentalk.egg-info/entry_points.txt
+writing requirements to ../../build/py_listentalk/py_listentalk.egg-info/requires.txt
+writing top-level names to ../../build/py_listentalk/py_listentalk.egg-info/top_level.txt
+writing manifest file '../../build/py_listentalk/py_listentalk.egg-info/SOURCES.txt'
+reading manifest file '../../build/py_listentalk/py_listentalk.egg-info/SOURCES.txt'
+writing manifest file '../../build/py_listentalk/py_listentalk.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/pi/przejsciowka/build/py_listentalk/build
+creating /home/pi/przejsciowka/build/py_listentalk/build/lib
+creating /home/pi/przejsciowka/build/py_listentalk/build/lib/py_listentalk
+copying py_listentalk/publisher_member_function.py -> /home/pi/przejsciowka/build/py_listentalk/build/lib/py_listentalk
+copying py_listentalk/__init__.py -> /home/pi/przejsciowka/build/py_listentalk/build/lib/py_listentalk
+running install
+running install_lib
+creating /home/pi/przejsciowka/install/py_listentalk/lib/python3.10/site-packages/py_listentalk
+copying /home/pi/przejsciowka/build/py_listentalk/build/lib/py_listentalk/publisher_member_function.py -> /home/pi/przejsciowka/install/py_listentalk/lib/python3.10/site-packages/py_listentalk
+copying /home/pi/przejsciowka/build/py_listentalk/build/lib/py_listentalk/__init__.py -> /home/pi/przejsciowka/install/py_listentalk/lib/python3.10/site-packages/py_listentalk
+byte-compiling /home/pi/przejsciowka/install/py_listentalk/lib/python3.10/site-packages/py_listentalk/publisher_member_function.py to publisher_member_function.cpython-310.pyc
+byte-compiling /home/pi/przejsciowka/install/py_listentalk/lib/python3.10/site-packages/py_listentalk/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/pi/przejsciowka/install/py_listentalk/share/ament_index
+creating /home/pi/przejsciowka/install/py_listentalk/share/ament_index/resource_index
+creating /home/pi/przejsciowka/install/py_listentalk/share/ament_index/resource_index/packages
+copying resource/py_listentalk -> /home/pi/przejsciowka/install/py_listentalk/share/ament_index/resource_index/packages
+copying package.xml -> /home/pi/przejsciowka/install/py_listentalk/share/py_listentalk
+running install_egg_info
+Copying ../../build/py_listentalk/py_listentalk.egg-info to /home/pi/przejsciowka/install/py_listentalk/lib/python3.10/site-packages/py_listentalk-0.0.0-py3.10.egg-info
+running install_scripts
+Installing talker script to /home/pi/przejsciowka/install/py_listentalk/lib/py_listentalk
+writing list of installed files to '/home/pi/przejsciowka/build/py_listentalk/install.log'
