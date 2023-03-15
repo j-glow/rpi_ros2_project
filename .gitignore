@@ -23,6 +23,9 @@ devel_isolated/
 /cfg/cpp/
 /cfg/*.py
 
+# vscode stuff
+.vscode/
+
 # Ignore generated docs
 *.dox
 *.wikidoc
