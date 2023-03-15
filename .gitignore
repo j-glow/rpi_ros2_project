@@ -1,6 +1,8 @@
 devel/
 logs/
 build/
+install/
+log/
 bin/
 lib/
 msg_gen/
@@ -42,8 +44,11 @@ qtcreator-*
 /planning/docs
 /planning/src
 
+#ros package files
 /src/*/test/
 /src/*/*/install/
+/src/*/*/log/
+
 *~
 
 # Emacs
