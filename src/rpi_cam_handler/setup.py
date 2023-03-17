@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'cv_basics'
+package_name = 'rpi_cam_handler'
 
 setup(
     name=package_name,
