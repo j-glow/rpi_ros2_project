@@ -9,7 +9,7 @@ class ImageSubscriber(Node):
     super().__init__('image_subscriber')
     self.subscription = self.create_subscription(
       Image, 
-      'image_raw', 
+      'image_raw/compressed', 
       self.listener_callback, 
       10)
     self.subscription # prevent unused variable warning
@@ -22,9 +22,11 @@ class ImageSubscriber(Node):
  
     # Convert ROS Image message to OpenCV image
     current_frame = self.br.imgmsg_to_cv2(data)
+    converted_frame = cv2.cvtColor(current_frame,cv2.COLOR_RGB2BGR)
     
     # Display image
-    cv2.imshow("camera", current_frame)
+    cv2.imshow("camera", converted_frame)
+    cv2.imshow("camera2", current_frame)
     
     cv2.waitKey(1)
   
