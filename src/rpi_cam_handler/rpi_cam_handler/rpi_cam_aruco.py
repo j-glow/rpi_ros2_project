@@ -33,7 +33,7 @@ class RpiCamAruco(Node):
     markerCorners, markerIds, _ = detector.detectMarkers(converted_frame)
 
     #draw found markers
-    arucoImg = converted_frame
+    arucoImg = converted_frame.copy()
     if len(markerCorners)>0:
       markerIds.flatten()
 
