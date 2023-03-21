@@ -1,39 +1,20 @@
-import rclpy
-from rclpy.node import Node
-from sensor_msgs.msg import Image 
-from cv_bridge import CvBridge
 import cv2
- 
-class RpiCamAruco(Node):
-  def __init__(self):
-    super().__init__('rpi_cam_aruco')
-    self.subscription = self.create_subscription(
-      Image, 
-      '/image_raw/decompressed', 
-      self.listener_callback, 
-      10)
-    self.subscription # prevent unused variable warning
-      
-    # Used to convert between ROS and OpenCV images
-    self.br = CvBridge()
-   
-  def listener_callback(self, data):
-    self.get_logger().info('Receiving video frame')
- 
-    # Convert ROS Image message to OpenCV image
-    current_frame = self.br.imgmsg_to_cv2(data)
-    converted_frame = cv2.cvtColor(current_frame, cv2.COLOR_RGB2BGR)
-    
 
-    #find aruco tags
+cap = cv2.VideoCapture(0)
+
+while True:
+    ret, frame = cap.read()
+    cv2.imshow('frame',frame)
+
     arucoDict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_50)
     arucoParams = cv2.aruco.DetectorParameters()
     detector = cv2.aruco.ArucoDetector(arucoDict, arucoParams)
     
-    markerCorners, markerIds, _ = detector.detectMarkers(converted_frame)
+    markerCorners, markerIds, _ = detector.detectMarkers(frame)
 
     #draw found markers
-    arucoImg = converted_frame
+    arucoImg = frame
+    
     if len(markerCorners)>0:
       markerIds.flatten()
 
@@ -61,26 +42,11 @@ class RpiCamAruco(Node):
         cv2.putText(arucoImg, str(ID), (topLeft[0], topLeft[1] - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
     
     cv2.imshow("markers found", arucoImg)
+    
+    k = cv2.waitKey(30) & 0xff
+    if k==27:
+        break
 
-    if len(markerCorners)>0:
-      if 0 in markerIds:
-        converted_frame = cv2.flip(converted_frame, 0)
-      if 1 in markerIds:
-        converted_frame = cv2.flip(converted_frame, 1)
+cap.release()
+cv2.destroyAllWindows()
 
-    cv2.imshow("camera", converted_frame)
-
-    cv2.waitKey(1)
-  
-def main(args=None):
-  rclpy.init(args=args)
-  image_subscriber = RpiCamAruco()
-  
-  rclpy.spin(image_subscriber)
-
-  image_subscriber.destroy_node()
-
-  rclpy.shutdown()
-  
-if __name__ == '__main__':
-  main()
