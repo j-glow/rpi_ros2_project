@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'rpi_cam_aruco = cv_basics.rpi_cam_aruco:main'
+            'rpi_cam_aruco = rpi_cam_handler.rpi_cam_aruco:main'
         ],
     },
 )
