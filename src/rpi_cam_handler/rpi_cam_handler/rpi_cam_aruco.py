@@ -25,8 +25,7 @@ class RpiCamAruco(Node):
     converted_frame = cv2.cvtColor(current_frame, cv2.COLOR_RGB2BGR)
     
     # Display image
-    cv2.imshow("original", current_frame)
-    cv2.imshow("converted", converted_frame)
+    cv2.imshow("camera", converted_frame)
     
     cv2.waitKey(1)
   
